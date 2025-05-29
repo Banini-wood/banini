@@ -244,6 +244,7 @@ html[dir="rtl"] .gallery-container .next {
     border-radius: 0 4px 4px 0;
 }
 
+
 /* ברירת מחדל (אם אין dir=rtl או אם זה LTR) */
 html:not([dir="rtl"]) .gallery-container .prev {
     left: 0;
@@ -259,6 +260,8 @@ html:not([dir="rtl"]) .gallery-container .next {
 .gallery-container .next:hover {
     background-color: rgba(0,0,0,0.7); /* רקע כהה יותר במעבר עכבר */
 }
+
+
 /* Footer */
 footer {
     text-align: center;
@@ -272,6 +275,8 @@ footer p {
     margin: 0;
 }
 
+
+
 /* הגדרות ללוגו */
 #site-logo {
     max-height: 70px; /* או כל גודל שמתאים לך */
@@ -280,3 +285,19 @@ footer p {
 .logo-link {
     display: inline-block; /* כדי שהקישור יתנהג יפה עם גודל התמונה */
 }
+
+
+
+/* שיפור נראות הפוקוס לנגישות */
+*:focus-visible {
+  outline: 3px solid #005cbf; /* מסגרת כחולה בולטת יותר */
+  outline-offset: 2px;      /* מרווח קטן בין האלמנט למסגרת */
+  box-shadow: 0 0 0 2px white; /* הוספת "הילה" לבנה סביב המסגרת לשיפור ניגודיות על רקעים כהים (אופציונלי) */
+}
+
+/* הערה: אם יש לך אלמנטים ספציפיים שבהם החיווי הזה לא נראה טוב,
+   אפשר להתאים אותו עבורם ספציפית.
+   למשל, לכפתורים שלנו שכבר יש להם עיצוב רקע וצבע, 
+   אולי נרצה חיווי פוקוס שונה או עדין יותר.
+   אבל כהתחלה, הכלל הגלובלי הזה טוב.
+*/
