@@ -271,3 +271,12 @@ footer {
 footer p {
     margin: 0;
 }
+
+/* הגדרות ללוגו */
+#site-logo {
+    max-height: 70px; /* או כל גודל שמתאים לך */
+    width: auto; /* לשמירה על פרופורציות */
+}
+.logo-link {
+    display: inline-block; /* כדי שהקישור יתנהג יפה עם גודל התמונה */
+}
