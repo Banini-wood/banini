@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>שם העסק שלך</title>
+       <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>שם העסק שלך / לוגו</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">אודות</a></li>
+                <li><a href="#portfolio">תיק עבודות</a></li>
+                <li><a href="#contact">יצירת קשר</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>כותרת ראשית מרשימה שתופסת את העין</h2>
+            <p>כאן יופיע תיאור קצר וקולע שיסביר מה העסק שלך מציע ויעודד את המבקרים להמשיך.</p>
+            <a href="#contact" class="cta-button">צור קשר עכשיו</a>
+        </section>
+
+        <section id="about">
+            <h3>אודותינו</h3>
+            <p>כאן תוכל לפרט על העסק שלך. מה הרקע שלו? מהם הערכים המרכזיים? מה מייחד אתכם משאר המתחרים? תן ללקוחות הפוטנציאליים להכיר אותך טוב יותר.</p>
+        </section>
+
+       <section id="portfolio">
+ 		   <h3>תיק עבודות</h3>
+   	                 <div class="gallery-container">
+     		   <div class="gallery-slide">
+                               <img src="images/heart.jpg" alt="לב עם חשמל">
+                              <div class="caption">לב מחושמל- בשיטת ליכטנברג</div>
+                        </div>
+                          <div class="gallery-slide" style="display: none;">
+                               <img src="images/bathroom.jpg" alt="מידוף בהתאמה אישית למקלחת">
+                              <div class="caption">מידוף בהתאמה אישית למקלחת, על פי דרישת הלקוחה</div>
+                         </div>
+                         <div class="gallery-slide" style="display: none;">
+                               <img src="images/chanuka.jpg" alt="חנוכיה">
+                              <div class="caption">חנוכיה בעיצוב מיוחד</div>
+ 	             </div>
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+	</section>
+
+        <section id="contact">
+            <h3>יצירת קשר</h3>
+            <form action="#" method="post"> <div>
+                    <label for="name">שם מלא:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">כתובת דוא"ל:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">הודעה:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">שליחת פנייה</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 כל הזכויות שמורות ל[שם העסק שלך]. נבנה באהבה.</p>
+    </footer>
+	<script src="script.js"></script>
+    </body>
+</html>

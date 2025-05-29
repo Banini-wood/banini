@@ -1,0 +1,273 @@
+/* General Body Styles */
+body {
+    font-family: Arial, Helvetica, sans-serif; /* משפחת גופנים בסיסית וקריאה */
+    line-height: 1.6; /* מרווח בין שורות לשיפור קריאות */
+    color: #333; /* צבע טקסט כהה על רקע בהיר */
+    background-color: #f4f4f4; /* צבע רקע אפרפר בהיר לגוף הדף */
+    margin: 0; /* הסרת מרווחים חיצוניים דיפולטיביים של הדפדפן */
+    padding: 0; /* הסרת מרווחים פנימיים דיפולטיביים */
+    direction: rtl; /* כיווניות מימין לשמאל, כפי שמוגדר גם ב-HTML */
+}
+
+/* Header */
+header {
+    background: #333; /* רקע כהה לחלק העליון */
+    color: #fff; /* טקסט לבן על רקע כהה */
+    padding: 1rem 0; /* מרווח פנימי (למעלה/למטה, ואז לצדדים) */
+    text-align: center; /* מרכוז הטקסט */
+    border-bottom: #007bff 4px solid; /* קו תחתון כחול להדגשה */
+}
+
+header h1 {
+    margin: 0; /* הסרת מרווחים מהכותרת הראשית */
+    font-size: 2.2rem; /* גודל גופן לכותרת */
+    padding-bottom: 0.5rem; /* מרווח קטן מתחת לכותרת */
+}
+
+header nav ul {
+    padding: 0; /* הסרת מרווח פנימי מרשימת הניווט */
+    list-style: none; /* הסרת נקודות ברירת המחדל של רשימה */
+}
+
+header nav ul li {
+    display: inline; /* הצגת פריטי הרשימה בשורה אחת */
+    margin: 0 15px; /* מרווח בין פריטי התפריט */
+}
+
+header nav ul li a {
+    color: #fff; /* צבע הקישורים בתפריט */
+    text-decoration: none; /* הסרת קו תחתון מקישורים */
+    font-size: 1.1rem;
+}
+
+header nav ul li a:hover {
+    color: #007bff; /* שינוי צבע הקישור במעבר עכבר */
+}
+
+/* Main Content Sections */
+main {
+    /* התוכן המרכזי, כרגע ללא סגנון ספציפי גלובלי */
+}
+
+section {
+    padding: 40px 20px; /* מרווח פנימי גדול יותר בתוך כל מקטע */
+    background-color: #fff; /* רקע לבן למקטעים, ליצירת ניגוד עם רקע הדף */
+    margin-bottom: 20px; /* מרווח בין המקטעים */
+    border-bottom: 1px solid #ddd; /* קו הפרדה עדין בין מקטעים */
+}
+
+section:last-of-type { /* בוחר את המקטע האחרון */
+    border-bottom: none; /* מסיר את קו ההפרדה מהמקטע האחרון */
+    margin-bottom: 0; /* מסיר את המרווח התחתון מהמקטע האחרון */
+}
+
+section h2, section h3 {
+    color: #333; /* צבע כותרות המשנה */
+    margin-top: 0; /* הסרת מרווח עליון מכותרות משנה */
+    margin-bottom: 25px; /* מרווח מתחת לכותרות המשנה */
+    text-align: center; /* מרכוז כותרות המשנה */
+    font-size: 1.8rem;
+}
+
+/* Hero Section Specifics */
+#hero {
+    background: #e9ecef; /* רקע אפרפר בהיר יותר למקטע הגיבור */
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#hero h2 {
+    font-size: 2.5rem; /* גופן גדול יותר לכותרת במקטע הגיבור */
+    color: #0056b3; /* צבע כחול כהה יותר */
+    margin-bottom: 15px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #555; /* צבע טקסט מעט יותר בהיר */
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    background-color: #007bff; /* צבע רקע כחול לכפתור */
+    color: white; /* טקסט לבן */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px; /* פינות מעוגלות */
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* אנימציה חלקה למעבר צבע ושינוי גודל */
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* צבע רקע כהה יותר במעבר עכבר */
+    transform: scale(1.05); /* הגדלה קלה של הכפתור במעבר עכבר */
+}
+
+/* Form Styling */
+#contact {
+    background-color: #f9f9f9; /* רקע מעט שונה לאזור יצירת הקשר */
+}
+
+#contact form {
+    max-width: 600px; /* הגבלת רוחב הטופס */
+    margin: 0 auto; /* מרכוז הטופס בדף */
+    padding: 25px;
+    background: #fff; /* רקע לבן לטופס עצמו */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* הצללה קלה לטופס */
+}
+
+#contact form div {
+    margin-bottom: 15px;
+}
+
+#contact form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#contact form input[type="text"],
+#contact form input[type="email"],
+#contact form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* מבטיח ש-padding לא יוסיף לרוחב הכולל */
+}
+
+#contact form textarea {
+    resize: vertical; /* מאפשר שינוי גודל אנכי בלבד של אזור הטקסט */
+}
+
+#contact form button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: #28a745; /* צבע רקע ירוק לכפתור השליחה */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#contact form button[type="submit"]:hover {
+    background-color: #1e7e34; /* צבע ירוק כהה יותר במעבר עכבר */
+}
+
+/* Portfolio Gallery Styling */
+.gallery-container {
+    position: relative;
+    max-width: 700px;
+    margin: 30px auto;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff; /* רקע למיכל הגלריה הכללי */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-slide {
+    width: 100%;
+    height: 480px; /* גובה אחיד וקבוע לכל שקופית. שנה ערך זה לפי הצורך! */
+                   /* גובה זה צריך להכיל בנוחות את התמונה (בגובהה המקסימלי) ואת הכיתוב. */
+    display: flex;
+    flex-direction: column; /* סדר פריטים (תמונה וכיתוב) אחד מתחת לשני */
+    justify-content: center; /* מרכוז אנכי של התוכן בתוך השקופית */
+    align-items: center;     /* מרכוז אופקי של התוכן בתוך השקופית */
+    text-align: center;      /* ליישור טקסט הכיתוב למרכז */
+    background-color: #f0f0f0; /* צבע רקע לשקופית עצמה (יראה אם התמונה קטנה מהשטח) */
+    padding: 20px;           /* מרווח פנימי קטן בתוך כל שקופית */
+    box-sizing: border-box;  /* מבטיח שהמרווח הפנימי לא יוסיף לגובה/רוחב שהוגדר */
+    /* אם יש border-bottom על .gallery-slide img, הסר אותו משם. אפשר לשים על כל .gallery-slide אם רוצים. */
+}
+
+.gallery-slide img {
+    display: block;
+    max-width: 100%;
+    max-height: 380px; /* שנה ערך זה לפי הצורך (למשל, 380px) */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 15px; /* מרווח קיים מתחת לתמונה */
+    margin-left: auto;   /* <<< הוסף שורה זו */
+    margin-right: auto;  /* <<< הוסף שורה זו */
+}
+
+.gallery-slide .caption {
+    font-size: 0.9em;
+    color: #333;
+    padding: 5px 0 0 0; /* מרווח קטן מעל הכיתוב */
+    /* ודא שהכיתוב לא תופס יותר מדי גובה כדי לא לחרוג מגובה השקופית */
+    max-height: 60px; /* הגבלת גובה הכיתוב במידת הצורך */
+    overflow-y: auto; /* הוספת גלילה אם הכיתוב ארוך מדי (אופציונלי) */
+}
+
+/* שאר סגנונות הגלריה (כפתורים וכו') נשארים כפי שהיו */
+/* Gallery Navigation Buttons ... */
+
+/* Gallery Navigation Buttons */
+.gallery-container .prev,
+.gallery-container .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* ממקם את החלק העליון של הכפתור באמצע הגובה של המיכל */
+    transform: translateY(-50%); /* מרים את הכפתור למעלה ב-50% מגובהו שלו, למרכוז אנכי מושלם */
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    transition: background-color 0.3s ease;
+    border-radius: 0 4px 4px 0; /* עיגול פינות */
+    background-color: rgba(0,0,0,0.4);
+    border: none;
+    user-select: none; /* מונע בחירת טקסט בכפתורים */
+    z-index: 10; /* מוודא שהכפתורים מעל התמונות */
+}
+
+/* מיקום ספציפי לכפתורים (מותאם ל-RTL) */
+html[dir="rtl"] .gallery-container .prev {
+    right: 0; /* כפתור "הקודם" בצד ימין */
+    border-radius: 4px 0 0 4px;
+}
+
+html[dir="rtl"] .gallery-container .next {
+    left: 0; /* כפתור "הבא" בצד שמאל */
+    border-radius: 0 4px 4px 0;
+}
+
+/* ברירת מחדל (אם אין dir=rtl או אם זה LTR) */
+html:not([dir="rtl"]) .gallery-container .prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+}
+html:not([dir="rtl"]) .gallery-container .next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+
+.gallery-container .prev:hover,
+.gallery-container .next:hover {
+    background-color: rgba(0,0,0,0.7); /* רקע כהה יותר במעבר עכבר */
+}
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: #333; /* רקע כהה זהה לחלק העליון */
+    color: #fff; /* טקסט לבן */
+    margin-top: 0; /* הסרת מרווח עליון אם המקטע האחרון לא כולל margin-bottom */
+}
+
+footer p {
+    margin: 0;
+}
