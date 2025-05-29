@@ -20,6 +20,22 @@ function showSlide(index) {
     // הצגת השקופית הנוכחית בלבד
     if (slides[currentSlideIndex]) { // בדיקה שהשקופית קיימת
          slides[currentSlideIndex].style.display = "block";
+
+        // --- תוספת ARIA להכרזת השקופית הנוכחית ---
+        const announcer = document.getElementById('gallery-announcer');
+        if (announcer) { // ודא שאלמנט ההכרזה קיים
+            const currentSlideNumber = currentSlideIndex + 1; // מספר השקופית (מתחיל מ-1 עבור התצוגה למשתמש)
+            const totalSlides = slides.length; // המספר הכולל של שקופיות
+            
+            // ננסה לקבל את טקסט ה-alt של התמונה בשקופית הנוכחית
+            const imageElement = slides[currentSlideIndex].querySelector('img');
+            // אם יש אלמנט תמונה ויש לו טקסט alt, נשתמש בו. אחרת, נשתמש בטקסט חלופי.
+            const imageAltText = (imageElement && imageElement.alt) ? imageElement.alt : 'תיאור תמונה אינו זמין'; 
+            
+            // עדכון הטקסט באלמנט ההכרזה
+            announcer.textContent = `שקופית ${currentSlideNumber} מתוך ${totalSlides}: ${imageAltText}`;
+        }
+        // --- סוף תוספת ARIA ---
     }
 }
 
@@ -32,8 +48,16 @@ function changeSlide(n) {
 // אתחול הגלריה: הצגת השקופית הראשונה כשהדף נטען
 // ודא שיש שקופיות לפני שמנסים להציג אותן
 if (slides.length > 0) {
-    showSlide(currentSlideIndex);
+    showSlide(currentSlideIndex); // קריאה זו תפעיל את ההכרזה הראשונית
 }
 
-// הפונקציות changeSlide נקראות ישירות מה-HTML באמצעות onclick.
-// אין צורך לרשום אותן לחלון הגלובלי באופן מיוחד במקרה זה.
+// --- קוד להגבלת קלט לספרות בלבד בשדה הטלפון ---
+const phoneInput = document.getElementById('phone');
+
+if (phoneInput) {
+    phoneInput.addEventListener('input', function (e) {
+        // החלף כל תו שאינו ספרה במחרוזת ריקה
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    });
+}
+// --- סוף קוד להגבלת קלט ---

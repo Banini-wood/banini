@@ -34,8 +34,10 @@
         </section>
 
        <section id="portfolio">
- 		   <h2>תיק עבודות</h2>
-   	                 <div class="gallery-container">
+ 		       <h2 id="portfolio-heading">תיק עבודות</h2> <div class="gallery-container" role="region" aria-labelledby="portfolio-heading">
+       			 <div class="visually-hidden" aria-live="polite" id="gallery-announcer"></div> </div>
+   	                 <div class="gallery-container" role="region" aria-labelledby="portfolio-heading">
+			 <div class="visually-hidden" aria-live="polite" id="gallery-announcer"></div>
      		   <div class="gallery-slide">
                                <img src="heart.jpg" alt="לב עם חשמל">
                               <div class="caption">לב מחושמל- בשיטת ליכטנברג</div>
@@ -48,20 +50,29 @@
                                <img src="chanuka.jpg" alt="חנוכיה">
                               <div class="caption">חנוכיה בעיצוב מיוחד</div>
  	             </div>
-        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+			<button class="prev" onclick="changeSlide(-1)" aria-label="השקופית הקודמת">&#10094;</button>
+			<button class="next" onclick="changeSlide(1)" aria-label="השקופית הבאה">&#10095;</button>
     </div>
 	</section>
 
         <section id="contact">
             <h2>יצירת קשר</h2>
             <form action="#" method="post"> <div>
-                    <label for="name">שם מלא:</label>
-                    <input type="text" id="name" name="name" required>
+                   <label for="name">שם מלא:</label>
+    		     <input type="text" id="name" name="name" required autocomplete="name">
                 </div>
+		<div>
+		    <label for="phone">מספר טלפון:</label>
+		    <input type="tel" id="phone" name="phone"
+		           autocomplete="tel"
+		           inputmode="numeric"
+		           pattern="^0\d{8,9}$"
+		           title="הזן מספר טלפון ישראלי תקין בן 9 או 10 ספרות, המתחיל ב-0 (לדוגמה: 0501234567 או 031234567)"
+		                 required> 
+		</div>
                 <div>
                     <label for="email">כתובת דוא"ל:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required autocomplete="email">
                 </div>
                 <div>
                     <label for="message">הודעה:</label>

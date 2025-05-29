@@ -91,7 +91,7 @@ section h2, section h3 {
 /* Call to Action Button */
 .cta-button {
     display: inline-block;
-    background-color: #007bff; /* צבע רקע כחול לכפתור */
+    background-color: #0069D9; /* צבע רקע כחול לכפתור */
     color: white; /* טקסט לבן */
     padding: 12px 25px;
     text-decoration: none;
@@ -147,7 +147,7 @@ section h2, section h3 {
 #contact form button[type="submit"] {
     display: block;
     width: 100%;
-    background-color: #28a745; /* צבע רקע ירוק לכפתור השליחה */
+    background-color: #0069D9; /* צבע רקע כחול לכפתור השליחה */
     color: white;
     padding: 12px 20px;
     border: none;
@@ -159,7 +159,7 @@ section h2, section h3 {
 }
 
 #contact form button[type="submit"]:hover {
-    background-color: #1e7e34; /* צבע ירוק כהה יותר במעבר עכבר */
+    background-color: #0056b3; /* צבע כחול כהה יותר במעבר עכבר */
 }
 
 /* Portfolio Gallery Styling */
@@ -301,3 +301,16 @@ footer p {
    אולי נרצה חיווי פוקוס שונה או עדין יותר.
    אבל כהתחלה, הכלל הגלובלי הזה טוב.
 */
+
+
+.visually-hidden {
+    position: absolute !important; /* חשוב לדרוס מיקומים אחרים */
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    margin: -1px; /* למנוע השפעה על הפריסה */
+    padding: 0;
+    clip: rect(0 0 0 0); /* חיתוך האלמנט כך שלא ייראה */
+    white-space: nowrap; /* למנוע שבירת שורות אם יש טקסט */
+    border: 0;
+}
