@@ -9,41 +9,94 @@ body {
     direction: rtl; /* כיווניות מימין לשמאל, כפי שמוגדר גם ב-HTML */
 }
 
-/* Header */
+/* === עיצוב Header מעודכן: לוגו למעלה, שורת ניווט מתחת === */
+
 header {
-    background: #333; /* רקע כהה לחלק העליון */
-    color: #fff; /* טקסט לבן על רקע כהה */
-    padding: 1rem 0; /* מרווח פנימי (למעלה/למטה, ואז לצדדים) */
-    text-align: center; /* מרכוז הטקסט */
-    border-bottom: #007bff 4px solid; /* קו תחתון כחול להדגשה */
+    padding: 1rem 5%;                  /* ריווח פנימי לכל ה-header. התאם לפי הצורך. */
+    background: #333;                  /* צבע רקע קיים של ה-header */
+    color: #fff;                        /* צבע טקסט כללי ל-header (יעבור בירושה לקישורים/אייקונים אם לא מוגדר אחרת) */
+    border-bottom: #0069D9 4px solid;   /* קו תחתון (השתמשתי בכחול החדש של הכפתורים, התאם אם תרצה צבע אחר) */
+    text-align: center;                 /* יעזור למרכז את הלוגו אם ה-div שלו לא ברוחב מלא */
 }
 
-header h1 {
-    margin: 0; /* הסרת מרווחים מהכותרת הראשית */
-    font-size: 2.2rem; /* גודל גופן לכותרת */
-    padding-bottom: 0.5rem; /* מרווח קטן מתחת לכותרת */
+.logo-container {
+    margin-bottom: 15px;                /* מרווח בין הלוגו לשורת הניווט שתחתיו */
 }
 
-header nav ul {
-    padding: 0; /* הסרת מרווח פנימי מרשימת הניווט */
-    list-style: none; /* הסרת נקודות ברירת המחדל של רשימה */
+#site-logo { /* תמונת הלוגו עצמה */
+    max-height: 70px;                   /* גובה מקסימלי ללוגו. שנה לפי הצורך. */
+    width: auto;                        /* שמירה על פרופורציות */
+    display: block;                     /* מאפשר שימוש ב-margin: auto למרכוז אופקי */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-header nav ul li {
-    display: inline; /* הצגת פריטי הרשימה בשורה אחת */
-    margin: 0 15px; /* מרווח בין פריטי התפריט */
+.navigation-bar { /* המיכל שמכיל את התפריט והאייקונים החברתיים */
+    position: relative; /* מאפשר מיקום אבסולוטי לילדים (האייקונים החברתיים) */
+    display: flex;
+    justify-content: center; /* <<< זה ימרכז את התפריט הראשי */
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    min-height: 40px; /* גובה מינימלי כדי להבטיח שהאייקונים לא יגלשו אם אין תפריט או שהוא קצר */
 }
 
-header nav ul li a {
-    color: #fff; /* צבע הקישורים בתפריט */
-    text-decoration: none; /* הסרת קו תחתון מקישורים */
-    font-size: 1.1rem;
+/* === עיצוב תפריט ניווט ראשי === */
+/* === עיצוב תפריט ניווט ראשי (עם מרווח 'gap') === */
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* מסדר את פריטי התפריט בשורה */
+    gap: 25px;     /* <<< זה יוצר מרווח אחיד של 25px בין כל פריטי התפריט. שנה לפי הצורך. */
 }
 
-header nav ul li a:hover {
-    color: #007bff; /* שינוי צבע הקישור במעבר עכבר */
+.main-nav ul li {
+    /* אין צורך ב-margin-left כאן יותר, כי 'gap' מטפל במרווחים */
 }
 
+/* אין צורך בכלל .main-nav ul li:first-child יותר */
+.main-nav ul li a {
+    color: inherit; /* יורש את צבע הטקסט מה-header */
+    text-decoration: none;
+    font-size: 1.1rem; /* גודל גופן קיים של התפריט */
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a:focus-visible {
+    color: #0069D9; /* צבע מעבר עכבר/פוקוס (השתמשתי בכחול החדש, התאם) */
+}
+
+
+/* === עיצוב אייקונים חברתיים ב-Header === */
+.social-icons-header {
+    position: absolute; /* מיקום אבסולוטי ביחס ל- .navigation-bar */
+    left: 5%;          /* מרחק מצד שמאל של המסך, בהתאם ל-padding של ה-header */
+                       /* אם ה-padding של ה-header שלך שונה מ-5% בצדדים, התאם את הערך הזה */
+    top: 50%;          /* ממורכז אנכית ביחס ל- .navigation-bar */
+    transform: translateY(-50%); /* כוונון נוסף למרכוז אנכי מושלם */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icons-header a {
+    display: inline-block; /* טוב להתנהגות הקישור */
+    color: inherit;        /* האייקונים יקבלו את צבע הטקסט של ה-header (למשל, לבן) */
+    line-height: 0;        /* עוזר למנוע רווחים אנכיים מיותרים סביב ה-SVG אם הוא inline-block */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.social-icons-header a:hover,
+.social-icons-header a:focus-visible {
+    opacity: 0.7;        /* אפקט שקיפות קלה במעבר עכבר או פוקוס */
+}
+
+.social-icons-header svg {
+    width: 22px;          /* גודל האייקון הרצוי */
+    height: 22px;         /* גודל האייקון הרצוי */
+    fill: currentColor;   /* ה-SVG יקבל את הצבע של הקישור (<a>) שעוטף אותו */
+}
 /* Main Content Sections */
 main {
     /* התוכן המרכזי, כרגע ללא סגנון ספציפי גלובלי */
@@ -161,106 +214,6 @@ section h2, section h3 {
 #contact form button[type="submit"]:hover {
     background-color: #0056b3; /* צבע כחול כהה יותר במעבר עכבר */
 }
-
-/* Portfolio Gallery Styling */
-.gallery-container {
-    position: relative;
-    max-width: 700px;
-    margin: 30px auto;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #fff; /* רקע למיכל הגלריה הכללי */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.gallery-slide {
-    width: 100%;
-    height: 480px; /* גובה אחיד וקבוע לכל שקופית. שנה ערך זה לפי הצורך! */
-                   /* גובה זה צריך להכיל בנוחות את התמונה (בגובהה המקסימלי) ואת הכיתוב. */
-    display: flex;
-    flex-direction: column; /* סדר פריטים (תמונה וכיתוב) אחד מתחת לשני */
-    justify-content: center; /* מרכוז אנכי של התוכן בתוך השקופית */
-    align-items: center;     /* מרכוז אופקי של התוכן בתוך השקופית */
-    text-align: center;      /* ליישור טקסט הכיתוב למרכז */
-    background-color: #f0f0f0; /* צבע רקע לשקופית עצמה (יראה אם התמונה קטנה מהשטח) */
-    padding: 20px;           /* מרווח פנימי קטן בתוך כל שקופית */
-    box-sizing: border-box;  /* מבטיח שהמרווח הפנימי לא יוסיף לגובה/רוחב שהוגדר */
-    /* אם יש border-bottom על .gallery-slide img, הסר אותו משם. אפשר לשים על כל .gallery-slide אם רוצים. */
-}
-
-.gallery-slide img {
-    display: block;
-    max-width: 100%;
-    max-height: 380px; /* שנה ערך זה לפי הצורך (למשל, 380px) */
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 15px; /* מרווח קיים מתחת לתמונה */
-    margin-left: auto;   /* <<< הוסף שורה זו */
-    margin-right: auto;  /* <<< הוסף שורה זו */
-}
-
-.gallery-slide .caption {
-    font-size: 0.9em;
-    color: #333;
-    padding: 5px 0 0 0; /* מרווח קטן מעל הכיתוב */
-    /* ודא שהכיתוב לא תופס יותר מדי גובה כדי לא לחרוג מגובה השקופית */
-    max-height: 60px; /* הגבלת גובה הכיתוב במידת הצורך */
-    overflow-y: auto; /* הוספת גלילה אם הכיתוב ארוך מדי (אופציונלי) */
-}
-
-/* שאר סגנונות הגלריה (כפתורים וכו') נשארים כפי שהיו */
-/* Gallery Navigation Buttons ... */
-
-/* Gallery Navigation Buttons */
-.gallery-container .prev,
-.gallery-container .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%; /* ממקם את החלק העליון של הכפתור באמצע הגובה של המיכל */
-    transform: translateY(-50%); /* מרים את הכפתור למעלה ב-50% מגובהו שלו, למרכוז אנכי מושלם */
-    width: auto;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 22px;
-    transition: background-color 0.3s ease;
-    border-radius: 0 4px 4px 0; /* עיגול פינות */
-    background-color: rgba(0,0,0,0.4);
-    border: none;
-    user-select: none; /* מונע בחירת טקסט בכפתורים */
-    z-index: 10; /* מוודא שהכפתורים מעל התמונות */
-}
-
-/* מיקום ספציפי לכפתורים (מותאם ל-RTL) */
-html[dir="rtl"] .gallery-container .prev {
-    right: 0; /* כפתור "הקודם" בצד ימין */
-    border-radius: 4px 0 0 4px;
-}
-
-html[dir="rtl"] .gallery-container .next {
-    left: 0; /* כפתור "הבא" בצד שמאל */
-    border-radius: 0 4px 4px 0;
-}
-
-
-/* ברירת מחדל (אם אין dir=rtl או אם זה LTR) */
-html:not([dir="rtl"]) .gallery-container .prev {
-    left: 0;
-    border-radius: 0 4px 4px 0;
-}
-html:not([dir="rtl"]) .gallery-container .next {
-    right: 0;
-    border-radius: 4px 0 0 4px;
-}
-
-
-.gallery-container .prev:hover,
-.gallery-container .next:hover {
-    background-color: rgba(0,0,0,0.7); /* רקע כהה יותר במעבר עכבר */
-}
-
 
 /* Footer */
 footer {
