@@ -1,22 +1,42 @@
+:root {
+    --color-bg-main: #f2fedc;
+    --color-text-main: #1b3d2f; /* ודא שזה הצבע הירוק הכהה */
+       --color-bg-accent: #a38f5c;
+    --color-accent-primary: #ffd300;
+    --color-text-on-dark-bg: #f2fedc;
+    --color-text-on-accent-bg: #1b3d2f;
+    --color-white: #ffffff;
+}
+
+h1, h2, h3 { /* כרגע יש לנו באתר רק עד h3, אבל אפשר להוסיף את השאר לעתיד */
+    color: var(--color-text-main); /* מבטיח שכותרות משתמשות בצבע הטקסט הראשי (ירוק כהה) */
+    /* שמור על הגדרות אחרות של הכותרות אם יש לך (כמו margin, font-size וכו') */
+}
+
+p {
+    color: var(--color-text-main); /* מבטיח שפסקאות משתמשות בצבע הטקסט הראשי (ירוק כהה) */
+    /* שמור על הגדרות אחרות של פסקאות אם יש לך (כמו line-height, margin-bottom וכו') */
+}
+
 /* General Body Styles */
 body {
-    font-family: Arial, Helvetica, sans-serif; /* משפחת גופנים בסיסית וקריאה */
-    line-height: 1.6; /* מרווח בין שורות לשיפור קריאות */
-    color: #333; /* צבע טקסט כהה על רקע בהיר */
-    background-color: #f4f4f4; /* צבע רקע אפרפר בהיר לגוף הדף */
-    margin: 0; /* הסרת מרווחים חיצוניים דיפולטיביים של הדפדפן */
-    padding: 0; /* הסרת מרווחים פנימיים דיפולטיביים */
-    direction: rtl; /* כיווניות מימין לשמאל, כפי שמוגדר גם ב-HTML */
+    font-family: Arial, Helvetica, sans-serif; /* השאר את הגדרות הגופן והשורה הקיימות, או שנה לפי הצורך */
+    line-height: 1.6;
+    color: var(--color-text-main);            /* <<< צבע טקסט ראשי חדש (ירוק כהה) */
+    background-color: var(--color-bg-main);   /* <<< צבע רקע ראשי חדש (אוף-ווייט ירקרק) */
+    margin: 0;
+    padding: 0;
+    direction: rtl;
 }
 
 /* === עיצוב Header מעודכן: לוגו למעלה, שורת ניווט מתחת === */
 
 header {
-    padding: 1rem 5%;                  /* ריווח פנימי לכל ה-header. התאם לפי הצורך. */
-    background: #333;                  /* צבע רקע קיים של ה-header */
-    color: #fff;                        /* צבע טקסט כללי ל-header (יעבור בירושה לקישורים/אייקונים אם לא מוגדר אחרת) */
-    border-bottom: #0069D9 4px solid;   /* קו תחתון (השתמשתי בכחול החדש של הכפתורים, התאם אם תרצה צבע אחר) */
-    text-align: center;                 /* יעזור למרכז את הלוגו אם ה-div שלו לא ברוחב מלא */
+    padding: 1rem 5%;
+    background: var(--color-text-main);       /* <<< רקע ירוק כהה (הצבע הראשי של הטקסט שלנו) */
+    color: var(--color-text-on-dark-bg);    /* <<< צבע טקסט ראשי ל-header (אוף-ווייט ירקרק) */
+    border-bottom: 4px solid var(--color-accent-primary); /* <<< קו תחתון צהוב (צבע הדגשה) */
+    text-align: center;
 }
 
 .logo-container {
@@ -41,14 +61,20 @@ header {
     min-height: 40px; /* גובה מינימלי כדי להבטיח שהאייקונים לא יגלשו אם אין תפריט או שהוא קצר */
 }
 
-/* === עיצוב תפריט ניווט ראשי === */
 /* === עיצוב תפריט ניווט ראשי (עם מרווח 'gap') === */
 .main-nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* מסדר את פריטי התפריט בשורה */
-    gap: 25px;     /* <<< זה יוצר מרווח אחיד של 25px בין כל פריטי התפריט. שנה לפי הצורך. */
+    display: flex; /* << ודא שהשורה הזו קיימת ולא בהערה או נמחקת */
+    gap: 25px;     /* או כל ערך אחר שבחרת ל-gap */
+}
+
+/* === עיצוב תפריט ניווט ראשי (עם מרווח 'gap') === */
+.main-nav ul li a {
+    color: var(--color-text-on-dark-bg); /* טקסט בהיר (אוף-ווייט ירקרק) */
+    text-decoration: none;
+    font-size: 1.1rem;
 }
 
 .main-nav ul li {
@@ -64,9 +90,12 @@ header {
 
 .main-nav ul li a:hover,
 .main-nav ul li a:focus-visible {
-    color: #0069D9; /* צבע מעבר עכבר/פוקוס (השתמשתי בכחול החדש, התאם) */
+    color: var(--color-accent-primary); /* <<< צהוב במעבר עכבר (ניגודיות טובה על רקע ירוק כהה) */
+                                        /* #ffd300 על #1b3d2f נותן יחס של 2.62:1 - זה מתאים לאלמנטים גרפיים או טקסט גדול,
+                                           עבור טקסט ניווט בגודל 1.1rem זה גבולי. אם זה נראה לא מספיק קריא,
+                                           אפשר להשתמש בצבע בהיר יותר או להוסיף אפקט אחר.
+                                           אפשרות אחרת: להשאיר color: var(--color-text-on-dark-bg); ולהוסיף opacity: 0.8; */
 }
-
 
 /* === עיצוב אייקונים חברתיים ב-Header === */
 .social-icons-header {
@@ -82,7 +111,7 @@ header {
 
 .social-icons-header a {
     display: inline-block; /* טוב להתנהגות הקישור */
-    color: inherit;        /* האייקונים יקבלו את צבע הטקסט של ה-header (למשל, לבן) */
+    color: var(--color-text-on-dark-bg); /* האייקונים יקבלו צבע בהיר (אוף-ווייט ירקרק) */
     line-height: 0;        /* עוזר למנוע רווחים אנכיים מיותרים סביב ה-SVG אם הוא inline-block */
     transition: opacity 0.2s ease-in-out;
 }
@@ -103,10 +132,10 @@ main {
 }
 
 section {
-    padding: 40px 20px; /* מרווח פנימי גדול יותר בתוך כל מקטע */
+   padding: 40px 20px; /* מרווח פנימי גדול יותר בתוך כל מקטע */
     background-color: #fff; /* רקע לבן למקטעים, ליצירת ניגוד עם רקע הדף */
     margin-bottom: 20px; /* מרווח בין המקטעים */
-    border-bottom: 1px solid #ddd; /* קו הפרדה עדין בין מקטעים */
+    border-bottom: 1px solid var(--color-text-main); /* <<< שינוי צבע הגבול לירוק הכהה */
 }
 
 section:last-of-type { /* בוחר את המקטע האחרון */
@@ -115,7 +144,7 @@ section:last-of-type { /* בוחר את המקטע האחרון */
 }
 
 section h2, section h3 {
-    color: #333; /* צבע כותרות המשנה */
+  color: var(--color-text-main); /* <<< עדכן לצבע המשתנה החדש */
     margin-top: 0; /* הסרת מרווח עליון מכותרות משנה */
     margin-bottom: 25px; /* מרווח מתחת לכותרות המשנה */
     text-align: center; /* מרכוז כותרות המשנה */
@@ -124,53 +153,93 @@ section h2, section h3 {
 
 /* Hero Section Specifics */
 #hero {
-    background: #e9ecef; /* רקע אפרפר בהיר יותר למקטע הגיבור */
+ background: var(--color-accent-primary); /* <<< רקע צהוב */
     text-align: center;
     padding: 60px 20px;
 }
 
-#hero h2 {
-    font-size: 2.5rem; /* גופן גדול יותר לכותרת במקטע הגיבור */
-    color: #0056b3; /* צבע כחול כהה יותר */
+#hero h1 { /* <<< ודא שהסלקטור תואם לתגית הכותרת שלך ב-Hero */
+    font-size: 2.5rem; /* או 2.8rem כפי שהיה לך בהתחלה */
+    color: var(--color-text-main); /* <<< עדכן לצבע המשתנה החדש */
     margin-bottom: 15px;
 }
 
 #hero p {
     font-size: 1.2rem;
     margin-bottom: 25px;
-    color: #555; /* צבע טקסט מעט יותר בהיר */
+    color: var(--color-text-main); /* <<< עדכן לצבע המשתנה החדש */
 }
 
-/* Call to Action Button */
-.cta-button {
-    display: inline-block;
-    background-color: #0069D9; /* צבע רקע כחול לכפתור */
-    color: white; /* טקסט לבן */
+/* === עיצוב כפתורים מעודכן עם פלטת הצבעים החדשה === */
+
+/* --- סגנון ברירת מחדל לכפתורים (ישמש לכפתור הטופס) --- */
+#contact form button[type="submit"] {
+    display: block; /* מאפיינים ספציפיים לכפתור הטופס */
+    width: 100%;
+
     padding: 12px 25px;
     text-decoration: none;
-    border-radius: 5px; /* פינות מעוגלות */
+    border-radius: 5px;
     font-size: 1.1rem;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* אנימציה חלקה למעבר צבע ושינוי גודל */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+
+    background-color: var(--color-accent-primary); /* רקע צהוב */
+    color: var(--color-text-main);             /* טקסט ירוק כהה */
+    border: 2px solid var(--color-text-main);  /* מסגרת ירוקה כהה */
 }
 
-.cta-button:hover {
-    background-color: #0056b3; /* צבע רקע כהה יותר במעבר עכבר */
-    transform: scale(1.05); /* הגדלה קלה של הכפתור במעבר עכבר */
+#contact form button[type="submit"]:hover,
+#contact form button[type="submit"]:focus-visible {
+    background-color: var(--color-bg-accent); /* רקע זהב מעושן במעבר עכבר */
+    color: var(--color-text-main);          /* טקסט ירוק כהה נשאר */
+    border-color: var(--color-text-main);   /* מסגרת ירוקה כהה נשארת */
+    transform: scale(1.05);
+}
+
+/* --- סגנון ספציפי לכפתור הקריאה לפעולה (CTA) --- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+
+    background-color: var(--color-text-main);      /* <<< רקע ירוק כהה (כדי שיבלוט על רקע צהוב) */
+    color: var(--color-text-on-dark-bg);         /* <<< טקסט אוף-ווייט ירקרק (ניגודיות מעולה!) */
+    border: 2px solid var(--color-text-on-dark-bg);/* <<< מסגרת אוף-ווייט ירקרק */
+}
+
+.cta-button:hover, 
+.cta-button:focus-visible {
+    background-color: var(--color-bg-accent);      /* רקע זהב מעושן (כמו ה-hover של הכפתור השני) */
+    color: var(--color-text-main);               /* טקסט ירוק כהה (ניגודיות טובה על זהב מעושן) */
+    border-color: var(--color-text-main);        /* מסגרת ירוקה כהה */
+    transform: scale(1.05);
 }
 
 /* Form Styling */
 #contact {
-    background-color: #f9f9f9; /* רקע מעט שונה לאזור יצירת הקשר */
+    background-color: var(--color-bg-main); /* <<< רקע ירקרק בהיר לכל מקטע יצירת הקשר */
+    padding-top: 40px;    /* שמירה על ריווחים קיימים או התאמה */
+    padding-bottom: 60px; /* שמירה על ריווחים קיימים או התאמה */
+    /* אם יש border-bottom מהכלל הכללי של section ואתה לא רוצה אותו כאן, 
+       אפשר להוסיף: border-bottom: none; */
 }
 
 #contact form {
-    max-width: 600px; /* הגבלת רוחב הטופס */
-    margin: 0 auto; /* מרכוז הטופס בדף */
-    padding: 25px;
-    background: #fff; /* רקע לבן לטופס עצמו */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* הצללה קלה לטופס */
+    max-width: 600px;
+    margin: 0 auto; /* מרכוז הטופס */
+    padding: 30px 40px; /* ריווח פנימי (אפשר להתאים לזה של תיבת האודות) */
+    background-color: var(--color-white); /* <<< רקע לבן לטופס עצמו */
+    border-radius: 10px;    /* פינות מעוגלות (כמו בתיבת האודות) */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* הצללה (כמו בתיבת האודות) */
 }
 
 #contact form div {
@@ -197,35 +266,18 @@ section h2, section h3 {
     resize: vertical; /* מאפשר שינוי גודל אנכי בלבד של אזור הטקסט */
 }
 
-#contact form button[type="submit"] {
-    display: block;
-    width: 100%;
-    background-color: #0069D9; /* צבע רקע כחול לכפתור השליחה */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-#contact form button[type="submit"]:hover {
-    background-color: #0056b3; /* צבע כחול כהה יותר במעבר עכבר */
-}
-
 /* Footer */
 footer {
     text-align: center;
     padding: 2rem 0;
-    background: #333; /* רקע כהה זהה לחלק העליון */
-    color: #fff; /* טקסט לבן */
+  background: var(--color-text-main);    /* <<< רקע ירוק כהה */
+    color: var(--color-text-on-dark-bg); /* <<< טקסט בהיר (אוף-ווייט ירקרק) */
     margin-top: 0; /* הסרת מרווח עליון אם המקטע האחרון לא כולל margin-bottom */
 }
 
 footer p {
     margin: 0;
+ color: var(--color-text-on-dark-bg); /* ודא שגם הפסקאות בפנים מקבלות את הצבע הנכון */
 }
 
 
@@ -274,6 +326,7 @@ footer p {
        הן יכולות להישאר. התיבה תהיה בתוך המקטע הזה. */
     padding-top: 40px;    /* לדוגמה, מרווח מעל הכותרת */
     padding-bottom: 60px; /* לדוגמה, מרווח מתחת לתיבה */
+   background-color: var(--color-bg-main); /* <<< שינוי לרקע האוף-ווייט הירקרק */
 }
 
 #about h2 { /* עיצוב הכותרת "אודותינו" */
@@ -287,8 +340,7 @@ footer p {
     margin-left: auto;      /* ממורכז את התיבה אופקית */
     margin-right: auto;     /* ממורכז את התיבה אופקית */
     padding: 35px 45px;     /* מרווח פנימי בתוך התיבה (למעלה/למטה, ואז לצדדים) */
-    background-color: #f8f9fa; /* צבע רקע עדין לתיבה (אפור בהיר מאוד) */
-                               /* גוונים עדינים אחרים אפשריים: #f1f3f5, #eef2f7 (כחלחל בהיר), #fffaf0 (קרם עדין) */
+   background-color: var(--color-white); /* <<< רקע לבן לתיבה */
     border-radius: 10px;    /* פינות מעוגלות לתיבה */
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* הצללה עדינה למראה "מרחף" */
     text-align: center;     /* ממורכז את הטקסט (הפסקאות) בתוך התיבה */
@@ -297,9 +349,19 @@ footer p {
 .about-content-box p {
     line-height: 1.5;      /* מרווח בין שורות משופר לקריאות טובה יותר של טקסט ממורכז */
     margin-bottom: 1.5em;   /* מרווח בין פסקאות */
-    color: #343a40;       /* צבע טקסט מעט יותר כהה על הרקע הבהיר (אפשר להשאיר את ברירת המחדל אם היא #333) */
+    color: var(--color-text-main);       /* צבע טקסט מעט יותר כהה על הרקע הבהיר (אפשר להשאיר את ברירת המחדל אם היא #333) */
 }
 
 .about-content-box p:last-child {
     margin-bottom: 0;       /* הסרת המרווח התחתון מהפסקה האחרונה בתוך התיבה */
+}
+
+/* === עיצוב מקטע תיק עבודות (גלריה) === */
+#portfolio {
+    background-color: var(--color-bg-main); /* <<< רקע ירקרק בהיר למקטע הגלריה */
+    padding-top: 40px;    /* ריווח עליון (התאם לפי הצורך, בדומה למקטעים אחרים) */
+    padding-bottom: 60px; /* ריווח תחתון (התאם לפי הצורך) */
+    /* אם יש border-bottom מהכלל הכללי של section ואתה לא רוצה אותו כאן, 
+       אפשר להוסיף: border-bottom: none; 
+       או שנשקול לשנות את צבע הגבול הכללי בהמשך. */
 }
