@@ -461,6 +461,7 @@ footer p {
     #portfolio { /* מקטע הגלריה */
         padding-top: 10px;    /* לדוגמה, הקטנה מ-40px שהיו קודם */
         padding-bottom: 40px; /* לדוגמה, הקטנה מ-60px שהיו קודם */
+     overflow-x: hidden !important; /* מנסה למנוע מכל תוכן בתוך מקטע זה לגרום לגלילה אופקית */
     }
 
     #about { /* מקטע אודות */
@@ -484,4 +485,15 @@ footer p {
        }
        בתוך ה-media query הזה. אבל כרגע, עם המבנה הקיים, הכללים למעלה אמורים להספיק.
     */
+.elfsight-app-84cd2e9c-5218-4ff9-8e85-f8cca2cdc653 {
+        width: 100% !important;       /* אילוץ לתפוס 100% מהרוחב הזמין של ההורה שלו (#portfolio) */
+        max-width: 100% !important;   /* מוודא שהוא לא מנסה להיות רחב יותר מההורה */
+        box-sizing: border-box !important; /* מבטיח שריווחים וגבולות (אם יש) לא יוסיפו לרוחב המחושב */
+        margin-left: auto !important;   /* למרכוז, למקרה שהוא בכל זאת צר יותר מההורה */
+        margin-right: auto !important;  /* למרכוז */
+        overflow-x: hidden !important;  /* <<< זה המפתח! "חותך" כל תוכן שגולש אופקית מתוך המיכל הזה */
+                                      /* זה יוצר את אפקט ה"תיבה" שמכילה את הגלריה */
+        /* min-width: 0 !important; */ /* אפשר להוסיף את זה אם יש חשד שהווידג'ט מגדיר min-width בעייתי */
+    }
 }
+
