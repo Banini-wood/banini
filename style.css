@@ -369,7 +369,7 @@ footer p {
 
 /* === התאמות רספונסיביות למסכים קטנים === */
 
-@media (max-width: 574px) {
+@media (max-width: 840px) {
     /* שינויים שיחולו רק כשהמסך ברוחב 574px או פחות */
 
     .navigation-bar {
@@ -497,3 +497,49 @@ footer p {
     }
 }
 
+/* ============================================= */
+/* === סגנונות לדפים פנימיים / מקטעי תוכן === */
+/* ============================================= */
+
+.page-section { /* עיצוב כללי למקטעי תוכן בדפים פנימיים */
+    background-color: var(--color-bg-main);
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.content-container { /* מיכל תוכן כללי בדפים פנימיים */
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 20px 30px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* סגנונות ספציפיים להסבר על ליכטנברג */
+.lichtenberg-explanation h2 {
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    font-size: 1.8rem;
+    text-align: right;
+}
+
+.lichtenberg-explanation ol {
+    padding-right: 20px;
+}
+
+.lichtenberg-explanation ol li {
+    margin-bottom: 0.8em;
+    line-height: 1.6;
+}
+
+/* סגנונות לאזור הסרטון */
+.video-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.video-section h2 {
+    margin-bottom: 1em;
+    font-size: 1.8rem;
+}
