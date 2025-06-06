@@ -1,576 +1,311 @@
+@font-face {
+    font-family: 'BN Capuccino';
+    src: url('fonts/BN-Capuccino-Regular.woff2') format('woff2'),
+         url('fonts/BN-Capuccino-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    font-size: 18px;
+}
+
 :root {
-    --color-bg-main: #f2fedc;
-    --color-text-main: #1b3d2f; /* ודא שזה הצבע הירוק הכהה */
-       --color-bg-accent: #a38f5c;
-    --color-accent-primary: #ffd300;
-    --color-text-on-dark-bg: #f2fedc;
-    --color-text-on-accent-bg: #1b3d2f;
+    --color-bg-main: #fdd188;
+    --color-text-main: #341400;
+    --color-accent-primary: #ba560e;
+    --color-accent-secondary: #7e3408;
+    --color-text-on-dark: #fdd188;
     --color-white: #ffffff;
 }
 
-h1, h2, h3 { /* כרגע יש לנו באתר רק עד h3, אבל אפשר להוסיף את השאר לעתיד */
-    color: var(--color-text-main); /* מבטיח שכותרות משתמשות בצבע הטקסט הראשי (ירוק כהה) */
-    /* שמור על הגדרות אחרות של הכותרות אם יש לך (כמו margin, font-size וכו') */
-}
+/* === סגנונות גלובליים === */
 
-p {
-    color: var(--color-text-main); /* מבטיח שפסקאות משתמשות בצבע הטקסט הראשי (ירוק כהה) */
-    /* שמור על הגדרות אחרות של פסקאות אם יש לך (כמו line-height, margin-bottom וכו') */
-}
-
-/* General Body Styles */
 body {
-    font-family: Arial, Helvetica, sans-serif; /* השאר את הגדרות הגופן והשורה הקיימות, או שנה לפי הצורך */
+    font-family: 'BN Capuccino', Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    color: var(--color-text-main);            /* <<< צבע טקסט ראשי חדש (ירוק כהה) */
-    background-color: var(--color-bg-main);   /* <<< צבע רקע ראשי חדש (אוף-ווייט ירקרק) */
+    color: var(--color-text-main);            
+    background-color: var(--color-bg-main);   
     margin: 0;
     padding: 0;
     direction: rtl;
 }
 
-/* === עיצוב Header מעודכן: לוגו למעלה, שורת ניווט מתחת === */
+h1, h2, h3 {
+    color: var(--color-text-main);
+}
+
+p {
+    color: var(--color-text-main);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+a {
+    color: var(--color-accent-secondary);
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover, a:focus-visible {
+    color: var(--color-text-main);
+}
+
+/* === עיצוב Header === */
 
 header {
     padding: 1rem 5%;
-    background: var(--color-text-main);       /* <<< רקע ירוק כהה (הצבע הראשי של הטקסט שלנו) */
-    color: var(--color-text-on-dark-bg);    /* <<< צבע טקסט ראשי ל-header (אוף-ווייט ירקרק) */
-    border-bottom: 4px solid var(--color-accent-primary); /* <<< קו תחתון צהוב (צבע הדגשה) */
+    background: var(--color-text-main);
+    color: var(--color-text-on-dark);
+    border-bottom: 4px solid var(--color-accent-primary);
     text-align: center;
 }
 
 .logo-container {
-    margin-bottom: 15px;                /* מרווח בין הלוגו לשורת הניווט שתחתיו */
+    margin-bottom: 15px;
 }
 
-#site-logo { /* תמונת הלוגו עצמה */
-    max-height: 70px;                   /* גובה מקסימלי ללוגו. שנה לפי הצורך. */
-    width: auto;                        /* שמירה על פרופורציות */
-    display: block;                     /* מאפשר שימוש ב-margin: auto למרכוז אופקי */
+#site-logo {
+    max-height: 200px;
+    width: auto;
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.navigation-bar { /* המיכל שמכיל את התפריט והאייקונים החברתיים */
-    position: relative; /* מאפשר מיקום אבסולוטי לילדים (האייקונים החברתיים) */
+.navigation-bar {
+    position: relative;
     display: flex;
-    justify-content: center; /* <<< זה ימרכז את התפריט הראשי */
+    justify-content: center;
     align-items: center;
     padding-top: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
-    min-height: 40px; /* גובה מינימלי כדי להבטיח שהאייקונים לא יגלשו אם אין תפריט או שהוא קצר */
+    min-height: 40px;
 }
 
-/* === עיצוב תפריט ניווט ראשי (עם מרווח 'gap') === */
+/* === עיצוב Footer === */
+footer {
+  background: var(--color-text-main);    /* רקע חום כהה מאוד */
+    color: var(--color-text-on-dark);       /* טקסט בצבע אפרסק בהיר */
+    padding: 2rem 0;                        /* ריווח פנימי עליון ותחתון */
+    text-align: center;                     /* <<< זה הכלל שממרכז את הטקסט */
+    margin-top: 20px;                       /* מרווח מהמקטע האחרון שמעל הפוטר */
+}
 
+footer p {
+    margin: 0;
+    color: var(--color-text-on-dark); /* מוודא שהפסקה בפנים מקבלת את הצבע הנכון */
+}
+
+/* === עיצוב תפריט ניווט ראשי === */
 .main-nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    /* gap: 25px; */ /* <<< הסרנו את ה-gap או הפכנו אותו להערה */
-    justify-content: center; /* שמור על זה אם התפריט ממורכז */
+    justify-content: center;
 }
 
-/* === עיצוב תפריט ניווט ראשי (עם מרווח 'gap') === */
 .main-nav ul li a {
-    color: var(--color-text-on-dark-bg); /* טקסט בהיר (אוף-ווייט ירקרק) */
+    color: var(--color-text-on-dark);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
-.main-nav ul li {
-    /* אין צורך ב-margin-left כאן יותר, כי 'gap' מטפל במרווחים */
-}
-
-/* אין צורך בכלל .main-nav ul li:first-child יותר */
-.main-nav ul li a {
-    color: inherit; /* יורש את צבע הטקסט מה-header */
-    text-decoration: none;
-    font-size: 1.1rem; /* גודל גופן קיים של התפריט */
-}
-
-/* הוספת סמלון מפריד בין פריטי התפריט */
-.main-nav ul li:not(:first-child)::before { /* מחיל על כל li שאינו הילד הראשון */
-    content: '\2022'; /* קוד היוניקוד של הסמל "בולט" (•) */
-                       /* אפשרויות אחרות: '\00B7' (נקודה אמצעית: ·), או אפילו '|' */
-    margin-left: 5px;  /* מרווח משמאל לסמלון (ב-RTL, זה הרווח שבין הסמלון לפריט התפריט שלפניו) */
-    margin-right: 5px; /* מרווח מימין לסמלון (ב-RTL, זה הרווח שבין הסמלון לפריט התפריט שאחריו) */
-    color: var(--color-text-on-dark-bg); /* צבע הסמלון - זהה לצבע הקישורים בתפריט */
-                                       /* אפשר לשנות לצבע אחר מהפלטה אם רוצים, למשל var(--color-accent-primary) */
-    /* font-size: 0.8em; */ /* אפשר לשחק עם גודל הסמלון אם הוא גדול/קטן מדי */
-    /* vertical-align: middle; */ /* אם הסמלון לא ממורכז אנכית עם הטקסט */
+.main-nav ul li:not(:first-child)::before {
+    content: '\2022';
+    margin-left: 12px;
+    margin-right: 12px;
+    color: var(--color-text-on-dark);
 }
 
 .main-nav ul li a:hover,
 .main-nav ul li a:focus-visible {
-    color: var(--color-accent-primary); /* <<< צהוב במעבר עכבר (ניגודיות טובה על רקע ירוק כהה) */
-                                        /* #ffd300 על #1b3d2f נותן יחס של 2.62:1 - זה מתאים לאלמנטים גרפיים או טקסט גדול,
-                                           עבור טקסט ניווט בגודל 1.1rem זה גבולי. אם זה נראה לא מספיק קריא,
-                                           אפשר להשתמש בצבע בהיר יותר או להוסיף אפקט אחר.
-                                           אפשרות אחרת: להשאיר color: var(--color-text-on-dark-bg); ולהוסיף opacity: 0.8; */
+    color: var(--color-white);
 }
 
 /* === עיצוב אייקונים חברתיים ב-Header === */
 .social-icons-header {
-    position: absolute; /* מיקום אבסולוטי ביחס ל- .navigation-bar */
-    left: 5%;          /* מרחק מצד שמאל של המסך, בהתאם ל-padding של ה-header */
-                       /* אם ה-padding של ה-header שלך שונה מ-5% בצדדים, התאם את הערך הזה */
-    top: 50%;          /* ממורכז אנכית ביחס ל- .navigation-bar */
-    transform: translateY(-50%); /* כוונון נוסף למרכוז אנכי מושלם */
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
 .social-icons-header a {
-    display: inline-block; /* טוב להתנהגות הקישור */
-    color: var(--color-text-on-dark-bg); /* האייקונים יקבלו צבע בהיר (אוף-ווייט ירקרק) */
-    line-height: 0;        /* עוזר למנוע רווחים אנכיים מיותרים סביב ה-SVG אם הוא inline-block */
+    display: inline-block;
+    color: var(--color-text-on-dark);
+    line-height: 0;
     transition: opacity 0.2s ease-in-out;
 }
 
 .social-icons-header a:hover,
 .social-icons-header a:focus-visible {
-    opacity: 0.7;        /* אפקט שקיפות קלה במעבר עכבר או פוקוס */
+    opacity: 0.7;
 }
 
 .social-icons-header svg {
-    width: 22px;          /* גודל האייקון הרצוי */
-    height: 22px;         /* גודל האייקון הרצוי */
-    fill: currentColor;   /* ה-SVG יקבל את הצבע של הקישור (<a>) שעוטף אותו */
-}
-/* Main Content Sections */
-main {
-    /* התוכן המרכזי, כרגע ללא סגנון ספציפי גלובלי */
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
 }
 
+
+/* === עיצוב כללי למקטעים === */
 section {
-   padding: 40px 20px; /* מרווח פנימי גדול יותר בתוך כל מקטע */
-    background-color: #fff; /* רקע לבן למקטעים, ליצירת ניגוד עם רקע הדף */
-    margin-bottom: 20px; /* מרווח בין המקטעים */
-    border-bottom: 1px solid var(--color-text-main); /* <<< שינוי צבע הגבול לירוק הכהה */
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-text-main);
 }
 
-section:last-of-type { /* בוחר את המקטע האחרון */
-    border-bottom: none; /* מסיר את קו ההפרדה מהמקטע האחרון */
-    margin-bottom: 0; /* מסיר את המרווח התחתון מהמקטע האחרון */
+section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
-section h2, section h3 {
-  color: var(--color-text-main); /* <<< עדכן לצבע המשתנה החדש */
-    margin-top: 0; /* הסרת מרווח עליון מכותרות משנה */
-    margin-bottom: 25px; /* מרווח מתחת לכותרות המשנה */
-    text-align: center; /* מרכוז כותרות המשנה */
-    font-size: 1.8rem;
-}
-
-/* Hero Section Specifics */
+/* === עיצוב מקטעים ספציפיים === */
 #hero {
- background: var(--color-accent-primary); /* <<< רקע צהוב */
+    background: var(--color-accent-primary);
     text-align: center;
-    padding: 60px 20px;
+    padding: 15px 20px 30px 20px;
 }
 
-#hero h1 { /* <<< ודא שהסלקטור תואם לתגית הכותרת שלך ב-Hero */
-    font-size: 2.5rem; /* או 2.8rem כפי שהיה לך בהתחלה */
-    color: var(--color-text-main); /* <<< עדכן לצבע המשתנה החדש */
+#hero h1 {
+    font-size: 2.8rem;
     margin-bottom: 15px;
 }
 
 #hero p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 25px;
-    color: var(--color-text-main); /* <<< עדכן לצבע המשתנה החדש */
 }
 
-/* === עיצוב כפתורים מעודכן עם פלטת הצבעים החדשה === */
+#portfolio, #about, #contact, .page-section {
+    background-color: var(--color-bg-main);
+}
 
-/* --- סגנון ברירת מחדל לכפתורים (ישמש לכפתור הטופס) --- */
-#contact form button[type="submit"] {
-    display: block; /* מאפיינים ספציפיים לכפתור הטופס */
-    width: 100%;
-
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
+.about-content-box,
+.content-container {
+    background-color: var(--color-white);
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 35px 45px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
     text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-
-    background-color: var(--color-accent-primary); /* רקע צהוב */
-    color: var(--color-text-main);             /* טקסט ירוק כהה */
-    border: 2px solid var(--color-text-main);  /* מסגרת ירוקה כהה */
-}
-
-#contact form button[type="submit"]:hover,
-#contact form button[type="submit"]:focus-visible {
-    background-color: var(--color-bg-accent); /* רקע זהב מעושן במעבר עכבר */
-    color: var(--color-text-main);          /* טקסט ירוק כהה נשאר */
-    border-color: var(--color-text-main);   /* מסגרת ירוקה כהה נשארת */
-    transform: scale(1.05);
-}
-
-/* --- סגנון ספציפי לכפתור הקריאה לפעולה (CTA) --- */
-.cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-
-    background-color: var(--color-text-main);      /* <<< רקע ירוק כהה (כדי שיבלוט על רקע צהוב) */
-    color: var(--color-text-on-dark-bg);         /* <<< טקסט אוף-ווייט ירקרק (ניגודיות מעולה!) */
-    border: 2px solid var(--color-text-on-dark-bg);/* <<< מסגרת אוף-ווייט ירקרק */
-}
-
-.cta-button:hover, 
-.cta-button:focus-visible {
-    background-color: var(--color-bg-accent);      /* רקע זהב מעושן (כמו ה-hover של הכפתור השני) */
-    color: var(--color-text-main);               /* טקסט ירוק כהה (ניגודיות טובה על זהב מעושן) */
-    border-color: var(--color-text-main);        /* מסגרת ירוקה כהה */
-    transform: scale(1.05);
-}
-
-/* Form Styling */
-#contact {
-    background-color: var(--color-bg-main); /* <<< רקע ירקרק בהיר לכל מקטע יצירת הקשר */
-    padding-top: 40px;    /* שמירה על ריווחים קיימים או התאמה */
-    padding-bottom: 60px; /* שמירה על ריווחים קיימים או התאמה */
-    /* אם יש border-bottom מהכלל הכללי של section ואתה לא רוצה אותו כאן, 
-       אפשר להוסיף: border-bottom: none; */
+      line-height: 1.6; /* אפשר לשחק גם עם זה אם צריך אחרי שינוי גודל הגופן */
+      margin-bottom: 1.5em;
+    font-size: 1.5rem;          /* <<< הגדלנו את הגופן. נסה 1.2rem או 1.25rem, לפי מה שנראה לך טוב. */
+      letter-spacing: -0.5px;     /* <<< צמצום קל של המרווח בין האותיות. התאם או הסר אם זה לא נראה טוב. */
+                                /* אפשר לנסות ערכים כמו -0.2px, -0.5px. הימנע מערכים שליליים גדולים מדי. */
 }
 
 #contact form {
     max-width: 600px;
-    margin: 0 auto; /* מרכוז הטופס */
-    padding: 30px 40px; /* ריווח פנימי (אפשר להתאים לזה של תיבת האודות) */
-    background-color: var(--color-white); /* <<< רקע לבן לטופס עצמו */
-    border-radius: 10px;    /* פינות מעוגלות (כמו בתיבת האודות) */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* הצללה (כמו בתיבת האודות) */
+    margin: 0 auto; /* זה מה שממרכז את תיבת הטופס עצמה בדף */
+      padding: 30px 40px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    /* שים לב - אין כאן text-align: center; */
 }
 
-#contact form div {
-    margin-bottom: 15px;
+#about h2, #contact h2, .page-section h2, .lichtenberg-explanation h2, .video-section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 #contact form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-}
-
-#contact form input[type="text"],
-#contact form input[type="email"],
-#contact form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box; /* מבטיח ש-padding לא יוסיף לרוחב הכולל */
-}
-
-#contact form textarea {
-    resize: vertical; /* מאפשר שינוי גודל אנכי בלבד של אזור הטקסט */
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem 0;
-  background: var(--color-text-main);    /* <<< רקע ירוק כהה */
-    color: var(--color-text-on-dark-bg); /* <<< טקסט בהיר (אוף-ווייט ירקרק) */
-    margin-top: 0; /* הסרת מרווח עליון אם המקטע האחרון לא כולל margin-bottom */
-}
-
-footer p {
-    margin: 0;
- color: var(--color-text-on-dark-bg); /* ודא שגם הפסקאות בפנים מקבלות את הצבע הנכון */
-}
-
-
-
-/* הגדרות ללוגו */
-#site-logo {
-    max-height: 70px; /* או כל גודל שמתאים לך */
-    width: auto; /* לשמירה על פרופורציות */
-}
-.logo-link {
-    display: inline-block; /* כדי שהקישור יתנהג יפה עם גודל התמונה */
-}
-
-
-
-/* שיפור נראות הפוקוס לנגישות */
-*:focus-visible {
-  outline: 3px solid #005cbf; /* מסגרת כחולה בולטת יותר */
-  outline-offset: 2px;      /* מרווח קטן בין האלמנט למסגרת */
-  box-shadow: 0 0 0 2px white; /* הוספת "הילה" לבנה סביב המסגרת לשיפור ניגודיות על רקעים כהים (אופציונלי) */
-}
-
-/* הערה: אם יש לך אלמנטים ספציפיים שבהם החיווי הזה לא נראה טוב,
-   אפשר להתאים אותו עבורם ספציפית.
-   למשל, לכפתורים שלנו שכבר יש להם עיצוב רקע וצבע, 
-   אולי נרצה חיווי פוקוס שונה או עדין יותר.
-   אבל כהתחלה, הכלל הגלובלי הזה טוב.
-*/
-
-
-.visually-hidden {
-    position: absolute !important; /* חשוב לדרוס מיקומים אחרים */
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    margin: -1px; /* למנוע השפעה על הפריסה */
-    padding: 0;
-    clip: rect(0 0 0 0); /* חיתוך האלמנט כך שלא ייראה */
-    white-space: nowrap; /* למנוע שבירת שורות אם יש טקסט */
-    border: 0;
-}
-
-/* === עיצוב מקטע אודות === */
-#about {
-    /* אם יש לך כבר הגדרות padding או background למקטע #about כולו,
-       הן יכולות להישאר. התיבה תהיה בתוך המקטע הזה. */
-    padding-top: 40px;    /* לדוגמה, מרווח מעל הכותרת */
-    padding-bottom: 60px; /* לדוגמה, מרווח מתחת לתיבה */
-   background-color: var(--color-bg-main); /* <<< שינוי לרקע האוף-ווייט הירקרק */
-}
-
-#about h2 { /* עיצוב הכותרת "אודותינו" */
-    text-align: center; /* ממורכז את הכותרת */
-    margin-bottom: 40px; /* מרווח בין הכותרת לתיבת התוכן */
-    font-size: 2rem;     /* גודל גופן לכותרת המקטע (התאם לפי הצורך) */
-}
-
-.about-content-box {
-    max-width: 850px;       /* רוחב מקסימלי לתיבה. שנה לפי העדפתך (למשל, 800px, 70ch) */
-    margin-left: auto;      /* ממורכז את התיבה אופקית */
-    margin-right: auto;     /* ממורכז את התיבה אופקית */
-    padding: 35px 45px;     /* מרווח פנימי בתוך התיבה (למעלה/למטה, ואז לצדדים) */
-   background-color: var(--color-white); /* <<< רקע לבן לתיבה */
-    border-radius: 10px;    /* פינות מעוגלות לתיבה */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* הצללה עדינה למראה "מרחף" */
-    text-align: center;     /* ממורכז את הטקסט (הפסקאות) בתוך התיבה */
+    font-size: 1.1rem;
+    text-align: right; /* יישור תוויות בטופס לימין */
 }
 
 .about-content-box p {
-    line-height: 1.5;      /* מרווח בין שורות משופר לקריאות טובה יותר של טקסט ממורכז */
-    margin-bottom: 1.5em;   /* מרווח בין פסקאות */
-    color: var(--color-text-main);       /* צבע טקסט מעט יותר כהה על הרקע הבהיר (אפשר להשאיר את ברירת המחדל אם היא #333) */
+    line-height: 1.2;
+    margin-bottom: 1.5em;
+     font-size: 1.5rem;
 }
 
 .about-content-box p:last-child {
-    margin-bottom: 0;       /* הסרת המרווח התחתון מהפסקה האחרונה בתוך התיבה */
-}
-
-/* === עיצוב מקטע תיק עבודות (גלריה) === */
-#portfolio {
-    background-color: var(--color-bg-main); /* <<< רקע ירקרק בהיר למקטע הגלריה */
-    padding-top: 40px;    /* ריווח עליון (התאם לפי הצורך, בדומה למקטעים אחרים) */
-    padding-bottom: 60px; /* ריווח תחתון (התאם לפי הצורך) */
-    /* אם יש border-bottom מהכלל הכללי של section ואתה לא רוצה אותו כאן, 
-       אפשר להוסיף: border-bottom: none; 
-       או שנשקול לשנות את צבע הגבול הכללי בהמשך. */
+    margin-bottom: 0;
 }
 
 
-/* === התאמות רספונסיביות למסכים קטנים === */
-
-@media (max-width: 840px) {
-    /* שינויים שיחולו רק כשהמסך ברוחב 574px או פחות */
-
-    .navigation-bar {
-        flex-direction: column; /* גורם לתפריט ולאייקונים החברתיים להיות אחד מתחת לשני */
-        align-items: center;    /* ממורכז אותם אופקית כשהם אחד מתחת לשני */
-        padding-top: 10px;      /* שומר על ריווח עליון */
-        padding-bottom: 15px;   /* מוסיף ריווח תחתון */
-        min-height: auto;       /* מאפס גובה מינימלי אם היה, כדי לאפשר גמישות בגובה */
-        border-top: none;       /* מסיר את הקו העליון אם הוא נראה לא טוב במצב אנכי */
-    }
-
-    .main-nav {
-        width: 100%; /* גורם לתפריט לתפוס את כל הרוחב הזמין */
-        margin-bottom: 20px; /* מרווח בין התפריט הראשי לאייקונים החברתיים שמתחתיו */
-    }
-
-	.main-nav ul li a {
-        font-size: 0.95rem;  /* לדוגמה: הקטנה מ-1.1rem שהיה גודל ברירת המחדל. 
-                               אתה יכול לנסות גם 0.85rem או 0.95rem עד שזה ייראה טוב. */
-        /* padding: 3px 5px; /* אופציונלי: אם תרצה להוסיף קצת ריווח פנימי לכל קישור */
-    }
-
-    .main-nav ul {
-        justify-content: center; /* ממורכז את פריטי התפריט אם הם עדיין בשורה */
-                                 /* אם תרצה שגם פריטי התפריט יהיו אחד מתחת לשני, 
-                                    אפשר להוסיף כאן: flex-direction: column; align-items: center; */
-        gap: 10px;               /* אפשר להקטין את המרווח בין פריטי התפריט אם רוצים */
-    }
-
-    .social-icons-header {
-        position: static; /* מבטל את המיקום האבסולוטי כדי שהאייקונים יזרמו רגיל מתחת לתפריט */
-        transform: none;  /* מבטל את ה-transform שהיה קשור למיקום האבסולוטי */
-        margin-top: 0;    /* המרווח יגיע מה-margin-bottom של התפריט */
-        /* ה-gap בין האייקונים עצמם יישמר מההגדרה הכללית שלהם */
-    }
-
-    /* --- הצעות נוספות לשיפור המראה במסכים קטנים (אופציונלי) --- */
-    #site-logo {
-        max-height: 55px; /* אפשר להקטין קצת את הלוגו כדי לחסוך מקום אנכי */
-    }
-
-    .logo-container {
-        margin-bottom: 10px; /* להקטין את המרווח מתחת ללוגו */
-    }
-
-    header {
-        padding-left: 15px;  /* להקטין קצת את הריווחים הצידיים של ה-header כולו */
-        padding-right: 15px;
-    }
-
-    /* התאמות למקטע ה-Hero במסכים קטנים */
-    #hero h1 {
-        font-size: 2rem;   /* לדוגמה: הקטנה מגודל ברירת המחדל של 2.5rem או 2.8rem */
-        line-height: 1.2;  /* אפשר להתאים את גובה השורה אם הכותרת נשברת למספר שורות */
-    }
-
-    #hero p { /* תת-הכותרת */
-        font-size: 1rem;     /* לדוגמה: הקטנה מגודל ברירת המחדל של 1.2rem */
-        line-height: 1.5;    /* התאמת גובה שורה לקריאות */
-        margin-bottom: 25px; /* אפשר להתאים את המרווח מתחת לפסקה אם צריך */
-    }
-
-    /* אפשר גם להתאים את כפתור ה-CTA אם הוא נראה גדול מדי */
-    .cta-button {
-        font-size: 0.9rem; /* הקטנת גופן הכפתור */
-        padding: 10px 18px; /* הקטנת הריווח הפנימי בכפתור */
-    }
-/* התאמות למקטע "אודות" במסכים קטנים */
-    #about h2 { /* הכותרת "אודותינו" */
-        font-size: 1.7rem;   /* לדוגמה: הקטנה מ-2rem (שהיה גודלה הקודם) */
-        margin-bottom: 30px; /* אפשר להקטין גם את המרווח מתחת לכותרת אם רוצים */
-    }
-
-    .about-content-box {
-        padding: 25px 20px; /* אפשר להקטין מעט את הריווח הפנימי של התיבה */
-        /* אם תרצה שהתיבה תתפוס יותר מרוחב המסך (פחות שוליים), 
-           אפשר להוסיף כאן למשל: width: 90%; max-width: none; 
-           אבל כרגע היא אמורה להתאים את עצמה לרוחב הזמין עד ל-max-width הכללי שלה.
-        */
-    }
-
-    .about-content-box p {
-        font-size: 0.9rem;  /* לדוגמה: הקטנה מגודל ברירת המחדל של פסקאות (אם הוא 1rem) */
-        line-height: 1.6;   /* אולי נרצה להתאים את גובה השורה לגופן החדש. 
-                               אם ה-line-height הקודם שלך (למשל 1.5) היה ללא יחידות, 
-                               הוא כבר יחסי לגודל הגופן החדש וזה בסדר. 
-                               1.6 יכול להיות נעים לקריאה עם גופן מעט קטן יותר. */
-    }
-    #hero {
-     padding-top: 10px;    /* לדוגמה, הקטנה מ-60px שהיו קודם */
-        padding-bottom: 30px; /* לדוגמה, הקטנה מ-60px שהיו קודם */
-        /* הריווחים הצידיים (padding-left/right) יכולים להישאר כפי שהיו (למשל 20px) */
-    }
-
-    #portfolio { /* מקטע הגלריה */
-        padding-top: 10px;    /* לדוגמה, הקטנה מ-40px שהיו קודם */
-        padding-bottom: 40px; /* לדוגמה, הקטנה מ-60px שהיו קודם */
-     overflow-x: hidden !important; /* מנסה למנוע מכל תוכן בתוך מקטע זה לגרום לגלילה אופקית */
-    }
-
-    #about { /* מקטע אודות */
-        padding-top: 10px;    /* לדוגמה, הקטנה מ-40px שהיו קודם */
-        padding-bottom: 20px; /* לדוגמה, הקטנה מ-60px שהיו קודם */
-    }
-
-    #contact { /* מקטע יצירת קשר */
-        padding-top: 10px;    /* לדוגמה, הקטנה מה-40px שהיו במקור ל-section */
-     padding-bottom: 20px; /* לדוגמה, הקטנה מה-40px שהיו במקור ל-section */
-    }
-
-    /* הערה לגבי כלל 'section' כללי:
-       כרגע, כל המקטעים הראשיים שלנו הם בעלי ID ייחודי (#hero, #portfolio, #about, #contact),
-       ולכן הכללים הספציפיים שנתנו להם כאן ידאגו להתאים את הריווחים שלהם.
-       אם בעתיד תוסיף מקטעים חדשים שיש להם רק את התגית <section> ללא ID ספציפי עם הגדרות padding משלו,
-       והיית רוצה שגם להם יהיה padding מוקטן במסך צר, תוכל להוסיף גם כלל כללי כמו:
-       section {
-           padding-top: 20px;
-           padding-bottom: 20px;
-       }
-       בתוך ה-media query הזה. אבל כרגע, עם המבנה הקיים, הכללים למעלה אמורים להספיק.
-    */
-.elfsight-app-84cd2e9c-5218-4ff9-8e85-f8cca2cdc653 {
-        width: 100% !important;       /* אילוץ לתפוס 100% מהרוחב הזמין של ההורה שלו (#portfolio) */
-        max-width: 100% !important;   /* מוודא שהוא לא מנסה להיות רחב יותר מההורה */
-        box-sizing: border-box !important; /* מבטיח שריווחים וגבולות (אם יש) לא יוסיפו לרוחב המחושב */
-        margin-left: auto !important;   /* למרכוז, למקרה שהוא בכל זאת צר יותר מההורה */
-        margin-right: auto !important;  /* למרכוז */
-        overflow-x: hidden !important;  /* <<< זה המפתח! "חותך" כל תוכן שגולש אופקית מתוך המיכל הזה */
-                                      /* זה יוצר את אפקט ה"תיבה" שמכילה את הגלריה */
-        /* min-width: 0 !important; */ /* אפשר להוסיף את זה אם יש חשד שהווידג'ט מגדיר min-width בעייתי */
-    }
-}
-
-/* ============================================= */
-/* === סגנונות לדפים פנימיים / מקטעי תוכן === */
-/* ============================================= */
-
-.page-section { /* עיצוב כללי למקטעי תוכן בדפים פנימיים */
-    background-color: var(--color-bg-main);
-    padding-top: 30px;
-    padding-bottom: 50px;
-}
-
-.content-container { /* מיכל תוכן כללי בדפים פנימיים */
-    max-width: 850px;
-    margin: 20px auto;
-    padding: 20px 30px;
-    background-color: var(--color-white);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-/* סגנונות ספציפיים להסבר על ליכטנברג */
-.lichtenberg-explanation h2 {
-    margin-top: 2.5em;
-    margin-bottom: 1em;
-    font-size: 1.8rem;
-    text-align: right;
-}
-
-.lichtenberg-explanation ol {
-    padding-right: 20px;
-}
-
-.lichtenberg-explanation ol li {
-    margin-bottom: 0.8em;
-    line-height: 1.6;
-}
-
-/* סגנונות לאזור הסרטון */
-.video-section {
-    margin-top: 40px;
+/* === עיצוב כפתורים === */
+.cta-button,
+#contact form button[type="submit"] {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
     text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.video-section h2 {
-    margin-bottom: 1em;
-    font-size: 1.8rem;
+/* כפתור שליחה בטופס */
+#contact form button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: var(--color-accent-primary);
+    color: var(--color-text-main);
+    border: 2px solid var(--color-text-main);
 }
-/* === עיצוב לסרטון יוטיוב רספונסיבי === */
+
+#contact form button[type="submit"]:hover,
+#contact form button[type="submit"]:focus-visible {
+    background-color: var(--color-accent-secondary);
+    color: var(--color-white);
+    border-color: var(--color-accent-secondary);
+    transform: scale(1.05);
+}
+
+/* כפתור CTA */
+.cta-button {
+    background-color: var(--color-text-main);
+    color: var(--color-text-on-dark);
+    border: 2px solid var(--color-text-on-dark);
+}
+
+.cta-button:hover, 
+.cta-button:focus-visible {
+    background-color: var(--color-accent-secondary);
+    color: var(--color-white);
+    border-color: var(--color-accent-secondary);
+    transform: scale(1.05);
+}
+
+
+/* === סגנונות עזר ורספונסיביות === */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    margin: -1px;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .responsive-video-container {
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .responsive-video-container iframe {
@@ -580,4 +315,85 @@ footer p {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+/* === התאמות למסכים קטנים וטאבלטים === */
+@media (max-width: 840px) {
+
+    /* HEADER */
+    header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .logo-container {
+        margin-bottom: 10px;
+    }
+    #site-logo {
+        max-height: 55px;
+    }
+    .navigation-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 15px 15px 15px;
+        min-height: auto;
+        border-top: none;
+    }
+    .main-nav {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .main-nav ul {
+        gap: 20px;
+    }
+    .main-nav ul li a {
+        font-size: 1.1rem;
+    }
+    .main-nav ul li:not(:first-child)::before {
+        display: none; /* מסתיר את המפרידים במובייל ומשתמש ב-gap */
+    }
+    .social-icons-header {
+        position: static;
+        transform: none;
+    }
+
+    /* SECTIONS PADDING */
+    #hero {
+        padding: 25px 15px;
+    }
+    #portfolio, #about, #contact, .page-section {
+        padding: 30px 15px;
+    }
+
+    /* FONT SIZES */
+    #hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+    #hero p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+    #about h2, #contact h2, .page-section h2 {
+        font-size: 1.8rem;
+    }
+    .about-content-box p, .content-container p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    .cta-button, #contact form button[type="submit"] {
+        font-size: 1.1rem;
+    }
+
+    /* Elfsight Gallery Container Fix */
+    #portfolio {
+        overflow-x: hidden !important;
+    }
+    .elfsight-app-84cd2e9c-5218-4ff9-8e85-f8cca2cdc653 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        overflow-x: hidden !important;
+    }
 }
